@@ -4,6 +4,10 @@ var HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   mode: "development",
   entry: "./src/index.js",
+  devtool: "inline-source-map",
+  devServer: {
+     contentBase: './dist',
+   },
   output: {
     filename: "index.[contenthash].js"
   },
@@ -13,15 +17,13 @@ module.exports = {
       template: "src/assets/index.html"
     })
   ],
+
   module: {
     rules: [
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
-      },
-    ],
-  },
-
-
-  
+        use: ["style-loader", "css-loader"]
+      }
+    ]
+  }
 };
